@@ -3,7 +3,7 @@ const path = require('path');
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
 
-require('electron-reload')(__dirname)
+const electronReload = require('electron-reload')(__dirname)
 
 function createWindow() {
   // Create the browser window.
@@ -13,7 +13,11 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    resizable: false,
+    maximizable: false,
   });
+
+  win.menuBarVisible = false;
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
