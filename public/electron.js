@@ -3,11 +3,13 @@ const path = require('path');
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
 
+require('electron-reload')(__dirname)
+
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 900,
-    height: 600,
+    width: 1100,
+    height: 700,
     webPreferences: {
       nodeIntegration: true,
     },
