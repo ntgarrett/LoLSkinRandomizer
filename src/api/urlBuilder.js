@@ -13,3 +13,7 @@ export function buildChampionUrl(champion) {
 export function buildSkinLoadingImageUrl(champion, num) {
   return `${baseUrl}/cdn/img/champion/loading/${champion}_${num}.jpg`;
 }
+
+export function buildSkinSquareImageUrl(champion) {
+  return `${baseUrl}/cdn/${patchNum}/img/champion/${champion}.png`;
+}
