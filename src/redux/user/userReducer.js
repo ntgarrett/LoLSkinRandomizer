@@ -27,11 +27,14 @@ export const userReducer = (state = initial_state, action) => {
       }
     }
     case REMOVE_CHAMPION_FROM_FAVORITES: {
-      let newFavorites = [...state.favoriteChampions];
-      newFavorites.filter(elem => elem.key !== action.payload.key);
+      const index = state.favoriteChampions.findIndex(obj => obj.uId === action.payload.uId)
+
       return {
         ...state,
-        favoriteChampions: newFavorites
+        favoriteChampions: [
+          ...state.favoriteChampions.slice(0,index),
+          ...state.favoriteChampions.slice(index + 1)
+        ]
       }
     }
     case ADD_OWNED_SKIN: {
