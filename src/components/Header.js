@@ -1,9 +1,15 @@
+import { Typography } from '@mui/material';
 
-function Header({patch}) {
+const Header = ({ patch }) => {
 
   return (
-    <div>
-      <h3>LoL Skin Randomizer - {patch}</h3>
+    <div className='header'>
+      <Typography 
+        className='headertitle'
+        variant='h5'  
+      >
+        LoL Skin Randomizer - Patch {patch}
+      </Typography>
     </div>
   );
 }
