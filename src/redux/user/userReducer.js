@@ -4,6 +4,7 @@ import {
   REMOVE_CHAMPION_FROM_FAVORITES,
   ADD_OWNED_SKIN,
   REMOVE_OWNED_SKIN,
+  RESET_ALL_DATA
  } from "./types";
 
 const initial_state = {
@@ -44,11 +45,19 @@ export const userReducer = (state = initial_state, action) => {
       }
     }
     case REMOVE_OWNED_SKIN: {
-      let newOwnedSkins = [...state.ownedSkins];
-      newOwnedSkins.filter(elem => elem.key !== action.payload.key);
+      const index = state.ownedSkins.findIndex(obj => obj.id === action.payload.id)
+
       return {
         ...state,
-        ownedSkins: newOwnedSkins
+        ownedSkins: [
+          ...state.ownedSkins.slice(0,index),
+          ...state.ownedSkins.slice(index + 1)
+        ]
+      }
+    }
+    case RESET_ALL_DATA: {
+      return {
+        ...state = initial_state
       }
     }
     default: {

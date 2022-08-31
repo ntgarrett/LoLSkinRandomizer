@@ -2,7 +2,7 @@ import { buildSkinSquareImageUrl } from "../api/urlBuilder";
 import SmallChampionCard from "../components/SmallChampionCard";
 
 const SmallChampionCardContainer = (props) => {
-  const { urlName, name, uId, setSelectedChampion } = props;
+  const { urlName, name, uId, setSelectedChampion, setDrawerOpen, favorited } = props;
 
   const handleClick = () => {
     const c = {
@@ -12,6 +12,9 @@ const SmallChampionCardContainer = (props) => {
     }
 
     setSelectedChampion(c);
+    if (favorited) {
+      setDrawerOpen(false);
+    }
   }
 
   return (

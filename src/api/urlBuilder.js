@@ -1,4 +1,4 @@
-export const baseUrl = 'http://ddragon.leagueoflegends.com';
+export const baseUrl = 'https://ddragon.leagueoflegends.com';
 export const versionUrl = `${baseUrl}/api/versions.json`;
 const patchNum = localStorage.getItem('currentPatch') 
 
@@ -7,7 +7,7 @@ export function buildAllChampionsUrl() {
 }
 
 export function buildChampionUrl(champion) {
-  return `${baseUrl}/cdn/${patchNum}/${champion}.json`;
+  return `${baseUrl}/cdn/${patchNum}/data/en_US/champion/${champion}.json`;
 }
 
 export function buildSkinLoadingImageUrl(champion, num) {
@@ -16,8 +16,4 @@ export function buildSkinLoadingImageUrl(champion, num) {
 
 export function buildSkinSquareImageUrl(champion) {
   return `${baseUrl}/cdn/${patchNum}/img/champion/${champion}.png`;
-}
-
-export function buildChampionSplashImageUrl(champion, num) {
-  return `${baseUrl}/cdn/img/champion/splash/${champion}_${num}.jpg`;
 }

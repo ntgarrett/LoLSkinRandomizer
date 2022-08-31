@@ -1,5 +1,293 @@
 .App {
   text-align: center;
+  font-size: 12px;
 }
 
+.smallchampcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  min-width: 110px;
+  transition: transform 100ms ease-in;
+}
 
+.smallchampcard p {
+  margin: 5px;
+}
+
+.smallchampcard:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.smallchampcard img:hover {
+  border-color: #a99c61;
+  box-shadow: 0 0 10px #ebd882;
+}
+
+.filterbar {
+  display: flex;
+  justify-content: center;
+}
+
+.searchicon:hover {
+  transform: scale(1.05);
+}
+
+.sclistcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.largechampioncard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 330px;
+  margin: 15px;
+  user-select: none;
+}
+
+.largecardborder {
+  border: 5px solid;
+  border-image: linear-gradient(45deg, turquoise, greenyellow) 1;
+}
+
+.largecardplaceholder {
+  width: 150px;
+  height: 300px;
+  background: rgb(101,101,101);
+  background: linear-gradient(90deg, rgba(101,101,101,1) 0%, rgba(181,181,181,1) 50%, rgba(101,101,101,1) 100%);
+}
+
+.largechampioncard span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.starbutton {
+  margin-left: 25px;
+}
+
+.sb:hover {
+  transform: scale(1.1);
+}
+
+.smallchamplist {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  margin: 5px;
+  overflow-x: auto;
+}
+
+.sclistempty {
+  height: 120px;
+}
+
+.skincard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.skincard:last-child {
+  margin-bottom: 0;
+}
+
+.skincard:hover {
+  cursor: pointer;
+}
+
+.skincard p {
+  padding-left: 15px;
+  text-align: left;
+}
+
+.skincard p:hover {
+  transform: scale(1.02);
+}
+
+.ownedskin {
+  background-color: lightgrey;
+}
+
+.ownedskin p {
+  font-weight: bold;
+}
+
+.unownedskin img {
+  filter: grayscale(100%);
+}
+
+.unownedskin p {
+  color: gray;
+}
+
+.skinlistcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 330px;
+  width: 300px;
+  margin-top: 15px;
+  user-select: none;
+}
+
+.skinlistscrollable {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.skinlistscrollable:only-child {
+  justify-content: center;
+}
+
+.tricolumn {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  height: 360px;
+}
+
+.randombutton {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 180px;
+  height: 50px;
+  background-color: aquamarine;
+  border-radius: 15px;
+  margin: 15px auto 0 auto;
+}
+
+.randombutton:hover {
+  transform: scale(1.02);
+}
+
+.randombutton h3 {
+  padding-left: 5px;
+}
+
+.rbdisabled {
+  background-color: lightgrey;
+  color: grey;
+}
+
+.rbdisabled h3 {
+  color: grey;
+}
+
+.skinlistplaceholdercontainer {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.skinlistplaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 310px;
+  height: 258px;
+  margin-top: 24px;
+}
+
+.emptyskinlistmessage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  user-select: none;
+}
+
+.headertitle {
+  color: red;
+}
+
+.drawercontainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+}
+
+.defaults-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.defaults-content p {
+  padding: 0 20px 0 20px;
+  user-select: none;
+}
+
+.drawericon:hover {
+  cursor: pointer;
+}
+
+.drawer-favorite-title {
+  text-align: center;
+  user-select: none;
+  margin-bottom: 20px;
+}
+
+.drawer-favorites-container {
+  display: flex;
+  flex-direction: column;
+  height: 72.5vh;
+}
+
+.drawer-favorites-container .smallchampcard {
+  flex-direction: row;
+  justify-content: left;
+  margin-left: 20px;
+  min-height: 70px;
+}
+
+.drawer-favorites-container .smallchampcard p {
+  padding-left: 10px;
+}
+
+.drawer-favorites-container .smallchampcard:hover {
+  transform: none;
+}
+
+.drawer-favorites-scrollable {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.reset-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding: 15px 0;
+}
+
+.reset-button {
+  height: 40px;
+}

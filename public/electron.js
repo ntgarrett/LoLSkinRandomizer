@@ -15,6 +15,7 @@ function createWindow() {
     },
     resizable: false,
     maximizable: false,
+    icon: path.join(__dirname, "favicon.ico")
   });
 
   win.menuBarVisible = false;

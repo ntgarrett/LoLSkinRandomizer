@@ -1,10 +1,6 @@
-//import { useState } from 'react';
-
 import ChampionFilter from "../components/ChampionFilter";
 
 const ChampionFilterContainer = (props) => {
-  //const [value, setValue] = useState('');
-
   const { setFilteredChampionList, allChampions, setSelectedChampion, searchValue, setSearchValue } = props;
 
   const filterListOfChampions = (val) => {

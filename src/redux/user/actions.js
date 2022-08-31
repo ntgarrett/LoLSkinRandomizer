@@ -22,3 +22,7 @@ export const removeOwnedSkin = (action, value) => ({
   type: action,
   payload: value
 });
+
+export const resetAllData = (action) => ({
+  type: action
+})
