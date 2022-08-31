@@ -3,18 +3,19 @@ import { useEffect } from 'react';
 import SmallChampionSearchResults from '../components/SmallChampionSearchResults';
 
 const SmallChampionSearchResultsContainer = (props) => {
+  const { filteredChampionList, setFilteredChampionList, setSelectedChampion, searchValue } = props;
 
   useEffect(() => {
-    if (props.searchValue.length === 0) {
-      props.setFilteredChampionList([]);
+    if (searchValue.length === 0) {
+      setFilteredChampionList([]);
     }
-  }, [props.searchValue, props.setFilteredChampionList])
+  }, [searchValue, setFilteredChampionList])
 
 
   return (
     <SmallChampionSearchResults 
-      filteredChampionList={props.filteredChampionList}
-      setSelectedChampion={props.setSelectedChampion}
+      filteredChampionList={filteredChampionList}
+      setSelectedChampion={setSelectedChampion}
     />
   );
 };
