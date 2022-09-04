@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 
 const ConfirmationDialog = (props) => {
-  const { onClose, openDialog, setOpenDialog } = props;
+  const { onConfirm, openDialog, setOpenDialog } = props;
 
   const handleConfirm = () => {
-    onClose();
+    onConfirm();
   };
 
   const handleCancel = () => {
@@ -20,10 +20,10 @@ const ConfirmationDialog = (props) => {
 
   return (
     <Dialog onClose={handleCancel} open={openDialog}>
-      <DialogTitle>Are you sure?</DialogTitle>
+      <DialogTitle>Are you sure you want to reset?</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Resetting all data will remove your favorite champions, all skins, and reset the current state of the application.
+          Resetting all data will remove your saved champions, skins, and reset the current state of the application to default.
         </DialogContentText>
       </DialogContent>
       <DialogActions>
