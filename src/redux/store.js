@@ -3,6 +3,7 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 import versionSlice from './version/versionSlice';
 import championsSlice from './champions/championsSlice';
@@ -24,7 +25,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   devTools: process.env.NODE_ENV !== 'production',
   reducer: persistedReducer,
-  middleware: [thunk]
+  middleware: [thunk, logger]
 });
 
 export const persistor = persistStore(store);
