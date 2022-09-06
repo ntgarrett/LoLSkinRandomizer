@@ -23,7 +23,7 @@ const SkinSelectionListContainer = (props) => {
       const nonDefaultSkins = skinsList.slice(1);
       let skinsOwnedForThisChamp = user.ownedSkins.filter(skin => skin.champion === champName);
       if (skinsOwnedForThisChamp.length) {
-        let skinsToAdd = nonDefaultSkins.filter(skin => user.ownedSkins.some(s => s.id !== skin.id));
+        let skinsToAdd = nonDefaultSkins.filter(skin => !skinsOwnedForThisChamp.some(s => s.id === skin.id));
         dispatch(bulkAddSkins('BULK_ADD_OWNED_SKINS', skinsToAdd));
       } else {
         dispatch(bulkAddSkins('BULK_ADD_OWNED_SKINS', nonDefaultSkins));
