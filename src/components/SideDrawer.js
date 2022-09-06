@@ -1,4 +1,5 @@
-import { Drawer, Divider, Switch, Button } from '@mui/material';
+import { Drawer, Divider, Switch, Button, Tooltip } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
 
 const SideDrawer = (props) => {
   const { user, drawerOpen, favoritesList, handleDrawerClose, handleResetClicked, handleToggleUseDefaults } = props;
@@ -26,7 +27,13 @@ const SideDrawer = (props) => {
           </div>
         </div>
         <Divider />
-        <div className="reset-container">
+        <div className="sidebar-bottom-container">
+          <Tooltip
+            placement="top"
+            title="Created by Turbo Gnocci #NA"
+          >
+            <InfoIcon />
+          </Tooltip>
           <Button
             className="reset-button"
             variant="outlined"
@@ -35,6 +42,7 @@ const SideDrawer = (props) => {
           >
             <p>RESET DATA</p>
           </Button>
+          <InfoIcon sx={{ opacity: 0 }} />
         </div>
       </div>
     </Drawer>
