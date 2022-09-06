@@ -10,7 +10,7 @@ const ChampionFilter = (props) => {
           className='searchicon'
           disabled={props.searchValue.length === 0}
         >
-          <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+          <SearchIcon sx={{ mr: 1, my: 0.5 }} />
         </ButtonBase>
         <TextField 
           id="champion-search"
