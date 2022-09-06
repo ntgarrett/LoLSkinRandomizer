@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Divider } from '@mui/material';
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
 
 import './App.css';
 import { buildChampionUrl } from './api/urlBuilder';
@@ -13,6 +15,12 @@ import SelectedChampionContainer from './containers/SelectedChampionContainer';
 import SkinSelectionListContainer from './containers/SkinSelectionListContainer';
 import RandomizerButtonContainer from './containers/RandomizerButtonContainer';
 import LargeChampionCardContainer from './containers/LargeChampionCardContainer';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   const [filteredChampionList, setFilteredChampionList] = useState([]);
@@ -39,7 +47,6 @@ function App() {
     setFilteredChampionList([]);
     setSelectedChampion({});
     setSkinsList([]);
-    setSearchValue('');
     setRandomizedSkin({});
   }
 
@@ -105,65 +112,67 @@ function App() {
   }, [selectedChampion.urlName, setSkinsList]);
 
   return (
-    <div className="App">
-      <HeaderContainer
-        patch={localStorage.getItem('currentPatch')}
-        user={user}
-        dispatch={dispatch}
-        setSelectedChampion={setSelectedChampion}
-        resetState={resetState}
-      />
-      <ChampionFilterContainer
-        filteredChampionList={filteredChampionList}
-        setFilteredChampionList={setFilteredChampionList}
-        allChampions={allChampions}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-      {
-        filteredChampionList.length > 0 ?
-        <SmallChampionSearchResultsContainer
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div className="App">
+        <HeaderContainer
+          patch={localStorage.getItem('currentPatch')}
+          user={user}
+          dispatch={dispatch}
+          setSelectedChampion={setSelectedChampion}
+          resetState={resetState}
+        />
+        <ChampionFilterContainer
           filteredChampionList={filteredChampionList}
           setFilteredChampionList={setFilteredChampionList}
-          setSelectedChampion={setSelectedChampion}
+          allChampions={allChampions}
           searchValue={searchValue}
+          setSearchValue={setSearchValue}
         />
-        :
-        <div className='sclistempty'/>
-      }
-      <Divider sx={{ mr: 10, ml: 10}}/>
-      <div className='tricolumn'>
-        <SelectedChampionContainer
-          name={selectedChampion.name}
-          urlName={selectedChampion.urlName}
-          uId={selectedChampion.uId}
-          skinNum={0}
-          isFavorited={determineIfFavorited(selectedChampion.uId)}
-          dispatch={dispatch}
-          isSkin={false}
-        />
-        <SkinSelectionListContainer
-          user={user}
-          champName={selectedChampion.urlName}
-          skinsList={skinsList}
-          dispatch={dispatch}
-        />
-        <LargeChampionCardContainer
-          name={randomizedSkin.name}
-          urlName={randomizedSkin.champion}
-          uId={randomizedSkin.id}
-          skinNum={randomizedSkin.num}
-          isFavorited={false}
-          dispatch={dispatch}
-          setSkinsList={setSkinsList}
-          isSkin={true}
+        {
+          filteredChampionList.length > 0 ?
+          <SmallChampionSearchResultsContainer
+            filteredChampionList={filteredChampionList}
+            setFilteredChampionList={setFilteredChampionList}
+            setSelectedChampion={setSelectedChampion}
+            searchValue={searchValue}
           />
+          :
+          <div className='sclistempty'/>
+        }
+        <div className='tricolumn'>
+          <SelectedChampionContainer
+            name={selectedChampion.name}
+            urlName={selectedChampion.urlName}
+            uId={selectedChampion.uId}
+            skinNum={0}
+            isFavorited={determineIfFavorited(selectedChampion.uId)}
+            dispatch={dispatch}
+            isSkin={false}
+          />
+          <SkinSelectionListContainer
+            user={user}
+            champName={selectedChampion.urlName}
+            skinsList={skinsList}
+            dispatch={dispatch}
+          />
+          <LargeChampionCardContainer
+            name={randomizedSkin.name}
+            urlName={randomizedSkin.champion}
+            uId={randomizedSkin.id}
+            skinNum={randomizedSkin.num}
+            isFavorited={false}
+            dispatch={dispatch}
+            setSkinsList={setSkinsList}
+            isSkin={true}
+            />
+        </div>
+        <RandomizerButtonContainer 
+          handleButtonClick={randomizeSkinsClicked}
+          isDisabled={determineRandomizeButtonDisabled()}
+        />
       </div>
-      <RandomizerButtonContainer 
-        handleButtonClick={randomizeSkinsClicked}
-        isDisabled={determineRandomizeButtonDisabled()}
-      />
-    </div>
+    </ThemeProvider>
   );
 }
 
