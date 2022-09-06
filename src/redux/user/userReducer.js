@@ -4,7 +4,9 @@ import {
   REMOVE_CHAMPION_FROM_FAVORITES,
   ADD_OWNED_SKIN,
   REMOVE_OWNED_SKIN,
-  RESET_ALL_DATA
+  RESET_ALL_DATA,
+  BULK_ADD_OWNED_SKINS,
+  BULK_REMOVE_OWNED_SKINS
  } from "./types";
 
 const initial_state = {
@@ -53,6 +55,18 @@ export const userReducer = (state = initial_state, action) => {
           ...state.ownedSkins.slice(0,index),
           ...state.ownedSkins.slice(index + 1)
         ]
+      }
+    }
+    case BULK_ADD_OWNED_SKINS: {
+      return {
+        ...state,
+        ownedSkins: [...state.ownedSkins, ...action.payload]
+      }
+    }
+    case BULK_REMOVE_OWNED_SKINS: {
+      return {
+        ...state,
+        ownedSkins: [...state.ownedSkins.filter(skin => skin.champion !== action.payload)]
       }
     }
     case RESET_ALL_DATA: {

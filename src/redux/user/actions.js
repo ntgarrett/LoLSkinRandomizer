@@ -25,4 +25,14 @@ export const removeOwnedSkin = (action, value) => ({
 
 export const resetAllData = (action) => ({
   type: action
-})
+});
+
+export const bulkAddSkins = (action, value) => ({
+  type: action,
+  payload: value
+});
+
+export const bulkRemoveSkins = (action, value) => ({
+  type: action,
+  payload: value
+});
