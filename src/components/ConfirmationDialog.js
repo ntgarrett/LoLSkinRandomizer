@@ -19,7 +19,7 @@ const ConfirmationDialog = (props) => {
   };
 
   return (
-    <Dialog onClose={handleCancel} open={openDialog}>
+    <Dialog onClose={handleCancel} open={openDialog} sx={{ userSelect: 'none' }}>
       <DialogTitle>Are you sure you want to reset?</DialogTitle>
       <DialogContent>
         <DialogContentText>
