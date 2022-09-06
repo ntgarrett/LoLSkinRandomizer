@@ -2,7 +2,7 @@ import { Drawer, Divider, Switch, Button, Tooltip } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 
 const SideDrawer = (props) => {
-  const { user, drawerOpen, favoritesList, handleDrawerClose, handleResetClicked, handleToggleUseDefaults } = props;
+  const { user, drawerOpen, favoritesList, handleDrawerClose, handleResetClicked, handleToggleUseDefaults, emptyFavorites } = props;
 
   return (
     <Drawer
@@ -21,11 +21,7 @@ const SideDrawer = (props) => {
         </span>
         <Divider />
         <p className="drawer-favorite-title">Favorite Champions</p>
-        <div className="drawer-favorites-container">
-          <div className="drawer-favorites-scrollable">
-            {favoritesList()}
-          </div>
-        </div>
+        {user.favoriteChampions.length ? favoritesList() : emptyFavorites()}
         <Divider />
         <div className="sidebar-bottom-container">
           <Tooltip

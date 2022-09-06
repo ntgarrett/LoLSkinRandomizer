@@ -43,21 +43,35 @@ const SideDrawerContainer = (props) => {
 
   const FavoritesList = () => {
     return (
-      user.favoriteChampions.sort(sortAlphabetically).map((champ, i) => {
-        return (
-          <SmallChampionCardContainer
-            urlName={champ.urlName}
-            name={champ.name}
-            uId={champ.uId}
-            setSelectedChampion={setSelectedChampion}
-            key={i}
-            setDrawerOpen={setDrawerOpen}
-            favorited
-          />
-        )
-      })
+      <div className='drawer-favorites-container'>
+        <div className='drawer-favorites-scrollable'>
+          {
+            user.favoriteChampions.sort(sortAlphabetically).map((champ, i) => {
+              return (
+                <SmallChampionCardContainer
+                  urlName={champ.urlName}
+                  name={champ.name}
+                  uId={champ.uId}
+                  setSelectedChampion={setSelectedChampion}
+                  key={i}
+                  setDrawerOpen={setDrawerOpen}
+                  favorited
+                />
+              )
+            })
+          }
+        </div>
+      </div>
     );
   };
+
+  const EmptyFavorites = () => {
+    return (
+      <div className='drawer-favorites-empty'>
+        <p>None. Click the star next to the champion name to add to favorites.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -68,6 +82,7 @@ const SideDrawerContainer = (props) => {
         handleDrawerClose={handleDrawerClose}
         handleResetClicked={handleResetClicked}
         handleToggleUseDefaults={handleToggleUseDefaults}
+        emptyFavorites={EmptyFavorites}
       />
       <ConfirmationDialog onConfirm={onConfirm} openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </>
