@@ -55,14 +55,13 @@ const SkinSelectionListContainer = (props) => {
             }
           </div>
           <div className="slcontainertext">
-            <p className='invis'>Secret123</p>
+            <Button style={{ opacity: '0' }} disabled>All</Button>
             <h3>Skin Selection</h3>
             <Tooltip
               placement="bottom"
               title="Select or deselect all skins"
             >
               <Button 
-                className="slcontainerbtn"
                 onClick={toggleAllSkins}
               >
                 All
