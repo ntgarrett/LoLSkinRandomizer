@@ -62,6 +62,7 @@ const SkinSelectionListContainer = (props) => {
               title="Select or deselect all skins"
             >
               <Button 
+                color="secondary"
                 onClick={toggleAllSkins}
               >
                 All

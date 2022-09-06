@@ -5,7 +5,7 @@ const RandomizerButtonContainer = (props) => {
     if (props.isDisabled) {
       return "randombutton rbdisabled";
     } else {
-      return "randombutton";
+      return "randombutton rbenabled";
     }
   }
 
