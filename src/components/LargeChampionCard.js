@@ -7,7 +7,7 @@ const LargeChampionCard = (props) => {
     if (props.name) {
       return props.name === 'default' ? "Default" : props.name;
     } else {
-      return props.isSkin ? "Skin Result" : "Select a Champion";
+      return props.isSkin ? "Skin Result" : "Champion";
     }
   }
 
@@ -33,7 +33,7 @@ const LargeChampionCard = (props) => {
               className="starbutton sb"
               onClick={props.handleStarClicked}
               disabled={props.isSkin || props.name === undefined}
-              sx={{ mr: 1 }}
+              sx={{ mr: 1, color: 'gold' }}
             >
               <Star sx={{ 
                 opacity: props.isSkin ? 0 : props.name === undefined ? 0 : 100,
