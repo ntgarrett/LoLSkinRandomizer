@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(86,86,86);
+  background: radial-gradient(ellipse, rgba(56,56,56,1) 0%, rgba(18,18,18,1) 100%, transparent);
 }
 
 img {
