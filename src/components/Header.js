@@ -13,7 +13,10 @@ const Header = (props) => {
         className='headertitle'
         variant='h6'  
       >
-        {`LoL Skin Randomizer - Patch ${patch}`}
+        {`LoL Skin Randomizer - Patch `}
+        <span className='headerhighlighted'>
+          {patch}
+        </span>
       </Typography>
       <Tooltip
         placement="left"

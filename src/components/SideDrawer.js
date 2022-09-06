@@ -12,7 +12,8 @@ const SideDrawer = (props) => {
       <div className='drawercontainer'>
         <span className='defaults-content'>
           <p>Include Default Skins </p>
-          <Switch 
+          <Switch
+            color='secondary'
             checked={user.includeDefaultSkins}
             onChange={handleToggleUseDefaults}
           />

@@ -13,6 +13,7 @@ const ChampionFilter = (props) => {
           <SearchIcon sx={{ mr: 1, my: 0.5 }} />
         </ButtonBase>
         <TextField 
+          color="secondary"
           id="champion-search"
           label="Search champions"
           variant="standard"
