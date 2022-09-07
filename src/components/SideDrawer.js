@@ -4,6 +4,15 @@ import InfoIcon from '@mui/icons-material/Info';
 const SideDrawer = (props) => {
   const { user, drawerOpen, favoritesList, handleDrawerClose, handleResetClicked, handleToggleUseDefaults, emptyFavorites } = props;
 
+  const TooltipText = () => {
+    return (
+      <p className='tooltiptext'>
+        Created by 
+        <span>{` Turbo Gnocci #NA`}</span>
+      </p>
+    )
+  };
+
   return (
     <Drawer
       anchor='right'
@@ -26,7 +35,7 @@ const SideDrawer = (props) => {
         <div className="sidebar-bottom-container">
           <Tooltip
             placement="top"
-            title="Created by Turbo Gnocci #NA"
+            title={<TooltipText />}
           >
             <InfoIcon />
           </Tooltip>

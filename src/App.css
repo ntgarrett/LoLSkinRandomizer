@@ -322,6 +322,10 @@
   padding: 15px 0;
 }
 
+.tooltiptext span {
+  color: gold;
+}
+
 .reset-button {
   height: 40px;
 }
