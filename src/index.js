@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import '../src/assets/fonts/AlumniSansPinstripe-Regular.ttf';
 import './index.css';
 import App from './App';
 

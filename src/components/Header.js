@@ -1,4 +1,4 @@
-import { Typography, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 import SideDrawerContainer from '../containers/SideDrawerContainer';
@@ -9,15 +9,14 @@ const Header = (props) => {
   return (
     <div className='header'>
       <p style={{userSelect: 'none', opacity: 0 }}>A</p>
-      <Typography 
+      <h1
         className='headertitle'
-        variant='h6'  
       >
         {`LoL Skin Randomizer - Patch `}
         <span className='headerhighlighted'>
           {patch}
         </span>
-      </Typography>
+      </h1> 
       <Tooltip
         placement="left"
         title="Settings and Favorite Champions"
