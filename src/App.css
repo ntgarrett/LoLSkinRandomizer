@@ -11,6 +11,7 @@
   height: 70px;
   min-width: 110px;
   transition: transform 100ms ease-in;
+  user-select: none;
 }
 
 .smallchampcard p {
@@ -23,8 +24,8 @@
 }
 
 .smallchampcard img:hover {
-  border-color: #a99c61;
-  box-shadow: 0 0 10px #ebd882;
+  border-color: violet;
+  box-shadow: 0 0 10px violet;
 }
 
 .filterbar {
@@ -56,7 +57,7 @@
 
 .largecardborder {
   border: 5px solid;
-  border-image: linear-gradient(45deg, turquoise, greenyellow) 1;
+  border-image: linear-gradient(45deg, red, violet) 1;
 }
 
 .largecardplaceholder {
@@ -75,6 +76,7 @@
 
 .starbutton {
   margin-left: 25px;
+  background-color: gold;
 }
 
 .sb:hover {
@@ -120,7 +122,7 @@
 }
 
 .ownedskin {
-  background-color: lightgrey;
+  background-color: #5a5a5a;
 }
 
 .ownedskin p {
@@ -129,10 +131,6 @@
 
 .unownedskin img {
   filter: grayscale(100%);
-}
-
-.unownedskin p {
-  color: gray;
 }
 
 .skinlistcontainer {
@@ -169,9 +167,8 @@
   align-items: center;
   width: 180px;
   height: 50px;
-  background-color: aquamarine;
   border-radius: 15px;
-  margin: 15px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .randombutton:hover {
@@ -182,13 +179,19 @@
   padding-left: 5px;
 }
 
+.rbenabled {
+  background: linear-gradient(45deg, red, violet);
+  border-color: indigo;
+  border-style: double;
+}
+
 .rbdisabled {
-  background-color: lightgrey;
-  color: grey;
+  background-color: grey;
+  opacity: 25%;
 }
 
 .rbdisabled h3 {
-  color: grey;
+  color: inherit;
 }
 
 .skinlistplaceholdercontainer {
@@ -223,7 +226,24 @@
 }
 
 .headertitle {
-  color: red;
+  font-family: 'Alumni';
+  font-size: 35px;
+  margin: 0;
+}
+
+.headerhighlighted {
+  color: violet;
+}
+
+.slcontainertext {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.invis {
+  opacity: 0;
 }
 
 .drawercontainer {
@@ -280,9 +300,23 @@
   height: 100%;
 }
 
-.reset-container {
+.drawer-favorites-empty {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 72.5vh;
+}
+
+.drawer-favorites-empty p {
+  font-size: 12px;
+  color: rgb(145, 143, 143);
+  padding: 0 2.5em 0 2.5em;
+}
+
+.sidebar-bottom-container {
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: auto;
   padding: 15px 0;
