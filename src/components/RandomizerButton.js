@@ -11,9 +11,9 @@ const RandomizerButton = (props) => {
         <CasinoIcon
 
         />
-        <h3>
+        <h2>
           RANDOMIZE
-        </h3>
+        </h2>
       </div>
     </ButtonBase>
   );

@@ -175,8 +175,10 @@
   transform: scale(1.02);
 }
 
-.randombutton h3 {
+.randombutton h2 {
   padding-left: 5px;
+  font-family: 'Alumni';
+  letter-spacing: 1px;
 }
 
 .rbenabled {
@@ -228,6 +230,7 @@
 .headertitle {
   font-family: 'Alumni';
   font-size: 35px;
+  letter-spacing: 1px;
   margin: 0;
 }
 
