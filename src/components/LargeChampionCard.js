@@ -1,6 +1,8 @@
 import { StarBorder, Star } from '@mui/icons-material';
 import { ButtonBase, Tooltip } from '@mui/material';
+
 import lgcardplaceholder from "../assets/images/lgcardplaceholder.png";
+import lgfallback from "../assets/images/lgfallback.png";
 
 const LargeChampionCard = (props) => {
   function determineCardText() {
@@ -16,6 +18,7 @@ const LargeChampionCard = (props) => {
       <img
         className="largecardborder"
         src={props.name !== undefined ? props.imgUrl : lgcardplaceholder}
+        onError={(e) => e.target.src = lgfallback }
         alt={`${props.name}.jpg`}
         width={150}
         height={273}

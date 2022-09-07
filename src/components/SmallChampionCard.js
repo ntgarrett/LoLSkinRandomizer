@@ -1,3 +1,5 @@
+import smfallback from "../assets/images/smfallback.png";
+
 const SmallChampionCard = (props) => {
   return (
     <div 
@@ -6,7 +8,8 @@ const SmallChampionCard = (props) => {
     >
       <img 
         src={props.imgSrc} 
-        alt='Square'
+        onError={(e) => e.target.src = smfallback }
+        alt='Champ'
         width='40'
         height='40'
       />
