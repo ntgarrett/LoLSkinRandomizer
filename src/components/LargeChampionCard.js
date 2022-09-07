@@ -1,6 +1,6 @@
 import { StarBorder, Star } from '@mui/icons-material';
 import { ButtonBase, Tooltip } from '@mui/material';
-import lgcardplaceholder from "../assets/lgcardplaceholder.png";
+import lgcardplaceholder from "../assets/images/lgcardplaceholder.png";
 
 const LargeChampionCard = (props) => {
   function determineCardText() {
