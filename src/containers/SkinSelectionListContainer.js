@@ -1,8 +1,7 @@
-import { Button, Tooltip } from '@mui/material';
-
 import { buildSkinLoadingImageUrl } from '../api/urlBuilder';
 import { bulkAddSkins, bulkRemoveSkins } from '../redux/user/actions';
 import SkinCardContainer from '../containers/SkinCardContainer';
+import SkinSelectionList from '../components/SkinSelectionList';
 
 const SkinSelectionListContainer = (props) => {
 
@@ -34,46 +33,27 @@ const SkinSelectionListContainer = (props) => {
   const SkinCardList = () => {
     return (
       <>
-        <div className="skinlistcontainer">
-          <div className="skinlistscrollable largecardborder">
-            {
-              champName === skinsList[0].champion && 
-              skinsList.slice(1).map((skin, i) => {
-                return (
-                  <SkinCardContainer 
-                    urlName={buildSkinLoadingImageUrl(champName, skin.num)}
-                    champName={champName}
-                    name={skin.name}
-                    num={skin.num}
-                    id={skin.id}
-                    user={user}
-                    dispatch={dispatch}
-                    key={i}
-                  />
-                )
-              })
-            }
-          </div>
-          <div className="slcontainertext">
-            <Button style={{ opacity: '0' }} disabled>All</Button>
-            <h3>Skin Selection</h3>
-            <Tooltip
-              placement="bottom"
-              title="Select or deselect all skins"
-            >
-              <Button 
-                color="secondary"
-                onClick={toggleAllSkins}
-              >
-                All
-              </Button>
-            </Tooltip>
-          </div>
-        </div>
+        {
+          champName === skinsList[0].champion && 
+          skinsList.slice(1).map((skin, i) => {
+            return (
+              <SkinCardContainer 
+                urlName={buildSkinLoadingImageUrl(champName, skin.num)}
+                champName={champName}
+                name={skin.name}
+                num={skin.num}
+                id={skin.id}
+                user={user}
+                dispatch={dispatch}
+                key={i}
+              />
+            );
+          })
+        }
       </>
     );
   }
-  
+
   const EmptyContainer = () => {
     return (
       <div className="skinlistcontainer">
@@ -86,7 +66,13 @@ const SkinSelectionListContainer = (props) => {
   }
 
   return (
-    skinsList.length ? <SkinCardList /> : <EmptyContainer />
+    skinsList.length ? 
+      <SkinSelectionList
+        skinCardList={SkinCardList}
+        toggleAllSkins={toggleAllSkins}
+      /> 
+      : 
+      <EmptyContainer />
   );
 };
 
