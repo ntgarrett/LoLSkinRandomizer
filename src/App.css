@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.smallchampcard img:hover {
+.smallchampcard:hover > .scimg {
   border-color: violet;
   box-shadow: 0 0 10px violet;
 }

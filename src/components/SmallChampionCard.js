@@ -7,6 +7,7 @@ const SmallChampionCard = (props) => {
       onClick={props.handleClick}  
     >
       <img 
+        className="scimg"
         src={props.imgSrc} 
         onError={(e) => e.target.src = smfallback }
         alt='Champ'
