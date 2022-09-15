@@ -63,8 +63,13 @@
 .largecardplaceholder {
   width: 150px;
   height: 300px;
-  background: rgb(101,101,101);
-  background: linear-gradient(90deg, rgba(101,101,101,1) 0%, rgba(181,181,181,1) 50%, rgba(101,101,101,1) 100%);
+  background: rgb(101, 101, 101);
+  background: linear-gradient(
+    90deg,
+    rgba(101, 101, 101, 1) 0%,
+    rgba(181, 181, 181, 1) 50%,
+    rgba(101, 101, 101, 1) 100%
+  );
 }
 
 .largechampioncard span {
@@ -334,10 +339,11 @@
 }
 
 @keyframes flash {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow: none;
   }
-  10%{
+  10% {
     text-shadow: 0 0 10px #fff, 0 0 15px red, 0 0 25px violet, 0 0 15px red;
   }
   70% {

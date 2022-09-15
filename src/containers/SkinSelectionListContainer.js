@@ -1,31 +1,32 @@
-import { buildSkinLoadingImageUrl } from '../api/urlBuilder';
-import { bulkAddSkins, bulkRemoveSkins } from '../redux/user/actions';
-import SkinCardContainer from '../containers/SkinCardContainer';
-import SkinSelectionList from '../components/SkinSelectionList';
+import { buildSkinLoadingImageUrl } from '../api/urlBuilder'
+import { bulkAddSkins, bulkRemoveSkins } from '../redux/user/actions'
+import SkinCardContainer from '../containers/SkinCardContainer'
+import SkinSelectionList from '../components/SkinSelectionList'
 
-const SkinSelectionListContainer = (props) => {
-
-  const { user, champName, skinsList, dispatch } = props;
+const SkinSelectionListContainer = props => {
+  const { user, champName, skinsList, dispatch } = props
 
   function ownsAllSkins() {
-    const nonDefaultSkins = skinsList.slice(1);
+    const nonDefaultSkins = skinsList.slice(1)
     if (nonDefaultSkins.every(skin => user.ownedSkins.some(s => s.id === skin.id))) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
   function toggleAllSkins() {
     if (ownsAllSkins()) {
-      dispatch(bulkRemoveSkins('BULK_REMOVE_OWNED_SKINS', champName));
+      dispatch(bulkRemoveSkins('BULK_REMOVE_OWNED_SKINS', champName))
     } else {
-      const nonDefaultSkins = skinsList.slice(1);
-      let skinsOwnedForThisChamp = user.ownedSkins.filter(skin => skin.champion === champName);
+      const nonDefaultSkins = skinsList.slice(1)
+      let skinsOwnedForThisChamp = user.ownedSkins.filter(skin => skin.champion === champName)
       if (skinsOwnedForThisChamp.length) {
-        let skinsToAdd = nonDefaultSkins.filter(skin => !skinsOwnedForThisChamp.some(s => s.id === skin.id));
-        dispatch(bulkAddSkins('BULK_ADD_OWNED_SKINS', skinsToAdd));
+        let skinsToAdd = nonDefaultSkins.filter(
+          skin => !skinsOwnedForThisChamp.some(s => s.id === skin.id),
+        )
+        dispatch(bulkAddSkins('BULK_ADD_OWNED_SKINS', skinsToAdd))
       } else {
-        dispatch(bulkAddSkins('BULK_ADD_OWNED_SKINS', nonDefaultSkins));
+        dispatch(bulkAddSkins('BULK_ADD_OWNED_SKINS', nonDefaultSkins))
       }
     }
   }
@@ -33,11 +34,10 @@ const SkinSelectionListContainer = (props) => {
   const SkinCardList = () => {
     return (
       <>
-        {
-          champName === skinsList[0].champion && 
+        {champName === skinsList[0].champion &&
           skinsList.slice(1).map((skin, i) => {
             return (
-              <SkinCardContainer 
+              <SkinCardContainer
                 urlName={buildSkinLoadingImageUrl(champName, skin.num)}
                 champName={champName}
                 name={skin.name}
@@ -47,11 +47,10 @@ const SkinSelectionListContainer = (props) => {
                 dispatch={dispatch}
                 key={i}
               />
-            );
-          })
-        }
+            )
+          })}
       </>
-    );
+    )
   }
 
   const EmptyContainer = () => {
@@ -62,18 +61,14 @@ const SkinSelectionListContainer = (props) => {
         </div>
         <h3>Skin Selection</h3>
       </div>
-    );
+    )
   }
 
-  return (
-    skinsList.length ? 
-      <SkinSelectionList
-        skinCardList={SkinCardList}
-        toggleAllSkins={toggleAllSkins}
-      /> 
-      : 
-      <EmptyContainer />
-  );
-};
+  return skinsList.length ? (
+    <SkinSelectionList skinCardList={SkinCardList} toggleAllSkins={toggleAllSkins} />
+  ) : (
+    <EmptyContainer />
+  )
+}
 
-export default SkinSelectionListContainer;
+export default SkinSelectionListContainer

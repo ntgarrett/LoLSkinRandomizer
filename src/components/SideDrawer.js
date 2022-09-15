@@ -1,29 +1,33 @@
-import { Drawer, Divider, Switch, Button, Tooltip } from '@mui/material';
-import InfoIcon from '@mui/icons-material/Info';
+import { Drawer, Divider, Switch, Button, Tooltip } from '@mui/material'
+import InfoIcon from '@mui/icons-material/Info'
 
-const SideDrawer = (props) => {
-  const { user, drawerOpen, favoritesList, handleDrawerClose, handleResetClicked, handleToggleUseDefaults, emptyFavorites } = props;
+const SideDrawer = props => {
+  const {
+    user,
+    drawerOpen,
+    favoritesList,
+    handleDrawerClose,
+    handleResetClicked,
+    handleToggleUseDefaults,
+    emptyFavorites,
+  } = props
 
   const TooltipText = () => {
     return (
-      <p className='tooltiptext'>
-        Created by 
+      <p className="tooltiptext">
+        Created by
         <span>{` Turbo Gnocci #NA`}</span>
       </p>
     )
-  };
+  }
 
   return (
-    <Drawer
-      anchor='right'
-      open={drawerOpen}
-      onClose={handleDrawerClose}
-    >
-      <div className='drawercontainer'>
-        <span className='defaults-content'>
+    <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerClose}>
+      <div className="drawercontainer">
+        <span className="defaults-content">
           <p>Include Default Skins </p>
           <Switch
-            color='secondary'
+            color="secondary"
             checked={user.includeDefaultSkins}
             onChange={handleToggleUseDefaults}
           />
@@ -33,10 +37,7 @@ const SideDrawer = (props) => {
         {user.favoriteChampions.length ? favoritesList() : emptyFavorites()}
         <Divider />
         <div className="sidebar-bottom-container">
-          <Tooltip
-            placement="top"
-            title={<TooltipText />}
-          >
+          <Tooltip placement="top" title={<TooltipText />}>
             <InfoIcon />
           </Tooltip>
           <Button
@@ -51,7 +52,7 @@ const SideDrawer = (props) => {
         </div>
       </div>
     </Drawer>
-  );
+  )
 }
 
-export default SideDrawer;
+export default SideDrawer

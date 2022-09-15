@@ -1,21 +1,21 @@
-import RandomizerButton from "../components/RandomizerButton";
+import RandomizerButton from '../components/RandomizerButton'
 
-const RandomizerButtonContainer = (props) => {
+const RandomizerButtonContainer = props => {
   function determineClassNames() {
     if (props.isDisabled) {
-      return "randombutton rbdisabled";
+      return 'randombutton rbdisabled'
     } else {
-      return "randombutton rbenabled";
+      return 'randombutton rbenabled'
     }
   }
 
   return (
-    <RandomizerButton 
+    <RandomizerButton
       handleButtonClick={props.handleButtonClick}
       isDisabled={props.isDisabled}
       determineClassNames={determineClassNames}
     />
-  );
+  )
 }
 
-export default RandomizerButtonContainer;
+export default RandomizerButtonContainer

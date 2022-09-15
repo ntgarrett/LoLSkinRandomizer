@@ -1,36 +1,36 @@
-import { buildSkinLoadingImageUrl } from '../api/urlBuilder';
-import { addChampionToFavorites, removeChampionFromFavorites } from '../redux/user/actions';
-import LargeChampionCard from '../components/LargeChampionCard';
+import { buildSkinLoadingImageUrl } from '../api/urlBuilder'
+import { addChampionToFavorites, removeChampionFromFavorites } from '../redux/user/actions'
+import LargeChampionCard from '../components/LargeChampionCard'
 
-const LargeChampionCardContainer = (props) => {
-  const { urlName, name, uId, skinNum, isFavorited, dispatch, isSkin, animation, setAnimation } = props;
+const LargeChampionCardContainer = props => {
+  const { urlName, name, uId, skinNum, isFavorited, dispatch, isSkin, animation, setAnimation } =
+    props
 
   const handleStarClicked = () => {
     const champ = {
       urlName: urlName,
       name: name,
-      uId: uId
-    };
+      uId: uId,
+    }
 
     if (isFavorited) {
-      dispatch(removeChampionFromFavorites('REMOVE_CHAMPION_FROM_FAVORITES', champ));
+      dispatch(removeChampionFromFavorites('REMOVE_CHAMPION_FROM_FAVORITES', champ))
     } else {
-      dispatch(addChampionToFavorites('ADD_CHAMPION_TO_FAVORITES', champ));
+      dispatch(addChampionToFavorites('ADD_CHAMPION_TO_FAVORITES', champ))
     }
-  };
-
+  }
 
   function determineCardText() {
     if (props.name) {
-      return props.name === 'default' ? "Default" : props.name;
+      return props.name === 'default' ? 'Default' : props.name
     } else {
-      return props.isSkin ? "Skin Result" : "Champion";
+      return props.isSkin ? 'Skin Result' : 'Champion'
     }
   }
-  
+
   return (
     <LargeChampionCard
-      name={name} 
+      name={name}
       imgUrl={buildSkinLoadingImageUrl(urlName, skinNum)}
       handleStarClicked={handleStarClicked}
       isFavorited={isFavorited}
@@ -39,7 +39,7 @@ const LargeChampionCardContainer = (props) => {
       animation={animation}
       setAnimation={setAnimation}
     />
-  );
-};
+  )
+}
 
-export default LargeChampionCardContainer;
+export default LargeChampionCardContainer

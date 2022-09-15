@@ -4,26 +4,27 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  Button
-} from "@mui/material";
+  Button,
+} from '@mui/material'
 
-const ConfirmationDialog = (props) => {
-  const { onConfirm, openDialog, setOpenDialog } = props;
+const ConfirmationDialog = props => {
+  const { onConfirm, openDialog, setOpenDialog } = props
 
   const handleConfirm = () => {
-    onConfirm();
-  };
+    onConfirm()
+  }
 
   const handleCancel = () => {
-    setOpenDialog(false);
-  };
+    setOpenDialog(false)
+  }
 
   return (
     <Dialog onClose={handleCancel} open={openDialog} sx={{ userSelect: 'none' }}>
       <DialogTitle>Are you sure you want to reset?</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Resetting all data will remove your saved champions, skins, and reset the current state of the application to default.
+          Resetting all data will remove your saved champions, skins, and reset the current state of
+          the application to default.
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -31,7 +32,7 @@ const ConfirmationDialog = (props) => {
         <Button onClick={handleCancel}>Cancel</Button>
       </DialogActions>
     </Dialog>
-  );
+  )
 }
 
-export default ConfirmationDialog;
+export default ConfirmationDialog

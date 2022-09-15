@@ -1,10 +1,10 @@
 // import { useEffect } from "react";
 
-import SelectedChampion from "../components/SelectedChampion";
+import SelectedChampion from '../components/SelectedChampion'
 // import { buildChampionUrl } from "../api/urlBuilder";
 
-const SelectedChampionContainer = (props) => {
-  const { name, urlName, uId, skinNum, isFavorited, dispatch, isSkin } = props;
+const SelectedChampionContainer = props => {
+  const { name, urlName, uId, skinNum, isFavorited, dispatch, isSkin } = props
 
   // async function fetchChampionSkinData(championName) {
   //   const response = await fetch(buildChampionUrl(championName))
@@ -26,7 +26,7 @@ const SelectedChampionContainer = (props) => {
   //   return skinData;
   // }
 
-  // useEffect(() => {     
+  // useEffect(() => {
   //   if (props.name) {
   //     if (skinsList.length) {
   //       if (skinsList[0].champion === urlName) {
@@ -45,9 +45,8 @@ const SelectedChampionContainer = (props) => {
   //   }
   // }, [props.name, urlName, skinsList, setSkinsList]);
 
-
   return (
-    <SelectedChampion 
+    <SelectedChampion
       name={name}
       urlName={urlName}
       uId={uId}
@@ -56,7 +55,7 @@ const SelectedChampionContainer = (props) => {
       dispatch={dispatch}
       isSkin={isSkin}
     />
-  );
-};
+  )
+}
 
-export default SelectedChampionContainer;
+export default SelectedChampionContainer

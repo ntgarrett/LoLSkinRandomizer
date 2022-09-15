@@ -1,23 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
-import SmallChampionSearchResults from '../components/SmallChampionSearchResults';
+import SmallChampionSearchResults from '../components/SmallChampionSearchResults'
 
-const SmallChampionSearchResultsContainer = (props) => {
-  const { filteredChampionList, setFilteredChampionList, setSelectedChampion, searchValue } = props;
+const SmallChampionSearchResultsContainer = props => {
+  const { filteredChampionList, setFilteredChampionList, setSelectedChampion, searchValue } = props
 
   useEffect(() => {
     if (searchValue.length === 0) {
-      setFilteredChampionList([]);
+      setFilteredChampionList([])
     }
   }, [searchValue, setFilteredChampionList])
 
-
   return (
-    <SmallChampionSearchResults 
+    <SmallChampionSearchResults
       filteredChampionList={filteredChampionList}
       setSelectedChampion={setSelectedChampion}
     />
-  );
-};
+  )
+}
 
-export default SmallChampionSearchResultsContainer;
+export default SmallChampionSearchResultsContainer

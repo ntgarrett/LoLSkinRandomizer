@@ -1,6 +1,6 @@
-import LargeChampionCardContainer from "../containers/LargeChampionCardContainer";
+import LargeChampionCardContainer from '../containers/LargeChampionCardContainer'
 
-const SelectedChampion = (props) => {
+const SelectedChampion = props => {
   return (
     <LargeChampionCardContainer
       name={props.name}
@@ -11,7 +11,7 @@ const SelectedChampion = (props) => {
       dispatch={props.dispatch}
       isSkin={props.isSkin}
     />
-  );
-};
+  )
+}
 
-export default SelectedChampion;
+export default SelectedChampion

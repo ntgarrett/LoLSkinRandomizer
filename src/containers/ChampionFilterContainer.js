@@ -1,39 +1,47 @@
-import ChampionFilter from "../components/ChampionFilter";
+import ChampionFilter from '../components/ChampionFilter'
 
-const ChampionFilterContainer = (props) => {
-  const { setFilteredChampionList, allChampions, setSelectedChampion, searchValue, setSearchValue } = props;
+const ChampionFilterContainer = props => {
+  const {
+    setFilteredChampionList,
+    allChampions,
+    setSelectedChampion,
+    searchValue,
+    setSearchValue,
+  } = props
 
-  const filterListOfChampions = (val) => {
-    let filteredList = allChampions.filter((champ) => champ.name.toLowerCase().includes(val.toLowerCase()));
+  const filterListOfChampions = val => {
+    let filteredList = allChampions.filter(champ =>
+      champ.name.toLowerCase().includes(val.toLowerCase()),
+    )
 
-    setFilteredChampionList(filteredList);
+    setFilteredChampionList(filteredList)
   }
-  
-  const onChange = (e) => {
-    setSearchValue(e.target.value);
+
+  const onChange = e => {
+    setSearchValue(e.target.value)
   }
 
   const onSubmitSearch = () => {
-    filterListOfChampions(searchValue);
+    filterListOfChampions(searchValue)
   }
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = e => {
     if (e.key === 'Enter') {
-      filterListOfChampions(searchValue);
+      filterListOfChampions(searchValue)
     } else {
-      setSearchValue(e.target.value);
+      setSearchValue(e.target.value)
     }
   }
 
   return (
-    <ChampionFilter 
+    <ChampionFilter
       onChange={onChange}
       onSubmitSearch={onSubmitSearch}
       handleKeyPress={handleKeyPress}
       searchValue={searchValue}
       setSelectedChampion={setSelectedChampion}
     />
-  );
-};
+  )
+}
 
-export default ChampionFilterContainer;
+export default ChampionFilterContainer

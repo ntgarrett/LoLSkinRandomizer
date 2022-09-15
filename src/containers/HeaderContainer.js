@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import Header from "../components/Header";
+import Header from '../components/Header'
 
-const HeaderContainer = (props) => {
-  const { patch, user, dispatch, setSelectedChampion, resetState } = props;
+const HeaderContainer = props => {
+  const { patch, user, dispatch, setSelectedChampion, resetState } = props
 
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
     <Header
@@ -17,7 +17,7 @@ const HeaderContainer = (props) => {
       setDrawerOpen={setDrawerOpen}
       resetState={resetState}
     />
-  );
+  )
 }
 
-export default HeaderContainer;
+export default HeaderContainer

@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
 
-import { persistor, store } from './redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
-import '../src/assets/fonts/AlumniSansPinstripe-Regular.ttf';
-import './index.css';
-import App from './App';
+import '../src/assets/fonts/AlumniSansPinstripe-Regular.ttf'
+import './index.css'
+import App from './App'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -17,5 +17,5 @@ root.render(
         <App />
       </PersistGate>
     </Provider>
-  </React.StrictMode>
-);
+  </React.StrictMode>,
+)

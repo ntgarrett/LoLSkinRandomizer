@@ -1,9 +1,8 @@
-import SmallChampionCardContainer from './SmallChampionCardContainer';
+import SmallChampionCardContainer from './SmallChampionCardContainer'
 
-const FavoriteChampionsContainer = (props) => {
-
+const FavoriteChampionsContainer = props => {
   return (
-    <div className='smallchamplist'>
+    <div className="smallchamplist">
       {props.favoriteChampionList.map((champ, i) => {
         return (
           <SmallChampionCardContainer
@@ -16,7 +15,7 @@ const FavoriteChampionsContainer = (props) => {
         )
       })}
     </div>
-  );
+  )
 }
 
-export default FavoriteChampionsContainer;
+export default FavoriteChampionsContainer

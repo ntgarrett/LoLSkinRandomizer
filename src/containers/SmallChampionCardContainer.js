@@ -1,19 +1,19 @@
-import { buildSkinSquareImageUrl } from "../api/urlBuilder";
-import SmallChampionCard from "../components/SmallChampionCard";
+import { buildSkinSquareImageUrl } from '../api/urlBuilder'
+import SmallChampionCard from '../components/SmallChampionCard'
 
-const SmallChampionCardContainer = (props) => {
-  const { urlName, name, uId, setSelectedChampion, setDrawerOpen, favorited } = props;
+const SmallChampionCardContainer = props => {
+  const { urlName, name, uId, setSelectedChampion, setDrawerOpen, favorited } = props
 
   const handleClick = () => {
     const c = {
       urlName: urlName,
       name: name,
-      uId: uId
+      uId: uId,
     }
 
-    setSelectedChampion(c);
+    setSelectedChampion(c)
     if (favorited) {
-      setDrawerOpen(false);
+      setDrawerOpen(false)
     }
   }
 
@@ -23,7 +23,7 @@ const SmallChampionCardContainer = (props) => {
       imgSrc={buildSkinSquareImageUrl(urlName)}
       handleClick={handleClick}
     />
-  );
-};
+  )
+}
 
-export default SmallChampionCardContainer;
+export default SmallChampionCardContainer
