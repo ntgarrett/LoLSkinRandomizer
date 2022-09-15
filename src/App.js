@@ -28,6 +28,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [skinsList, setSkinsList] = useState([]);
   const [randomizedSkin, setRandomizedSkin] = useState({});
+  const [animation, setAnimation] = useState(false);
 
   const { versionNumber } = useSelector((state) => state.version);
   const { allChampions } = useSelector((state) => state.champions);
@@ -36,7 +37,7 @@ function App() {
   const dispatch = useDispatch();
 
   function determineIfFavorited(id) {
-    return user.favoriteChampions.some(c => c.uId === id) || false;
+    return user.favoriteChampions.some(c => c.uId === id);
   }
 
   function getRandomInt(max) {
@@ -64,7 +65,7 @@ function App() {
     if (user.includeDefaultSkins) {
       skinChoices = [skinsList[0], ...skinChoices];
     }
-
+    setAnimation(true);
     setRandomizedSkin(skinChoices[getRandomInt(skinChoices.length)]);
   }
 
@@ -165,6 +166,8 @@ function App() {
             dispatch={dispatch}
             setSkinsList={setSkinsList}
             isSkin={true}
+            animation={animation}
+            setAnimation={setAnimation}
             />
         </div>
         <RandomizerButtonContainer 

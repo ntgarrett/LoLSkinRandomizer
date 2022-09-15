@@ -280,7 +280,7 @@
 .drawer-favorites-container {
   display: flex;
   flex-direction: column;
-  height: 72.5vh;
+  height: 480px;
 }
 
 .drawer-favorites-container .smallchampcard {
@@ -331,4 +331,23 @@
 
 .reset-button {
   height: 40px;
+}
+
+@keyframes flash {
+  0%, 100% {
+    text-shadow: none;
+  }
+  10%{
+    text-shadow: 0 0 10px #fff, 0 0 15px red, 0 0 25px violet, 0 0 15px red;
+  }
+  70% {
+    text-shadow: 0 0 10px #fff, 0 0 15px violet, 0 0 25px red, 0 0 15px violet;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+.skin-title {
+  animation: flash 700ms 1 ease-out;
 }

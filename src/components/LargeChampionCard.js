@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { StarBorder, Star } from '@mui/icons-material';
 import { ButtonBase, Tooltip } from '@mui/material';
 
@@ -5,41 +7,47 @@ import lgcardplaceholder from "../assets/images/lgcardplaceholder.png";
 import lgfallback from "../assets/images/lgfallback.png";
 
 const LargeChampionCard = (props) => {
-  function determineCardText() {
-    if (props.name) {
-      return props.name === 'default' ? "Default" : props.name;
-    } else {
-      return props.isSkin ? "Skin Result" : "Champion";
+  const { name, imgUrl, handleStarClicked, isFavorited, isSkin, cardText, animation, setAnimation } = props;
+
+  useEffect(() => {
+    if (animation) {
+      const intervalId = setTimeout(() => {
+        setAnimation(false);
+      }, 700);
+
+      return () => clearInterval(intervalId);
     }
-  }
+  }, [animation, setAnimation]);
+
+  const animationStyle = 'flash 700ms 1 ease-out';
 
   return (
     <div className='largechampioncard'>
       <img
         className="largecardborder"
-        src={props.name !== undefined ? props.imgUrl : lgcardplaceholder}
+        src={name !== undefined ? imgUrl : lgcardplaceholder}
         onError={(e) => e.target.src = lgfallback }
-        alt={`${props.name}.jpg`}
+        alt={`${name}.jpg`}
         width={150}
         height={273}
       />
       <span>
         {
-          props.isSkin || props.name === undefined ? null
+          isSkin || name === undefined ? null
           :
-          props.isFavorited ?
+          isFavorited ?
           <Tooltip 
             title="Remove from favorites" 
-            disableHoverListener={props.isSkin === true || props.name === undefined}
+            disableHoverListener={isSkin === true || name === undefined}
           >
             <ButtonBase 
               className="starbutton sb"
-              onClick={props.handleStarClicked}
-              disabled={props.isSkin || props.name === undefined}
+              onClick={handleStarClicked}
+              disabled={isSkin || name === undefined}
               sx={{ mr: 1, color: 'gold' }}
             >
               <Star sx={{ 
-                opacity: props.isSkin ? 0 : props.name === undefined ? 0 : 100,
+                opacity: isSkin ? 0 : name === undefined ? 0 : 100,
                 fontSize: 30
               }}/>
             </ButtonBase> 
@@ -47,24 +55,33 @@ const LargeChampionCard = (props) => {
           :
           <Tooltip
             title="Add to favorites"
-            disableHoverListener={props.isSkin === true || props.name === undefined}
+            disableHoverListener={isSkin === true || name === undefined}
           >
             <ButtonBase 
-              onClick={props.handleStarClicked}
+              onClick={handleStarClicked}
               className="starbutton sb"
-              disabled={props.isSkin || props.name === undefined}
+              disabled={isSkin || name === undefined}
               sx={{ mr: 1 }}
             >
               <StarBorder 
                 sx={{ 
-                  opacity: props.isSkin ? 0 : props.name === undefined ? 0 : 100,
+                  opacity: isSkin ? 0 : name === undefined ? 0 : 100,
                   fontSize: 30
                 }}
               />
             </ButtonBase>
           </Tooltip>
         }
-        <h3>{determineCardText()}</h3>
+        {
+          animation ?
+          <h3 style={{ animation: (animation ? animationStyle : "") }}>
+            {cardText()}
+          </h3>
+          :
+          <h3>
+            {cardText()}
+          </h3>
+        }
       </span>
     </div>
   );
