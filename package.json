@@ -2,7 +2,10 @@
   "name": "lolskinrandomizer",
   "version": "0.1.0",
   "private": true,
-  "main": "public/electron.js",
+  "homepage": "./",
+  "main": "./public/electron.js",
+  "author": "ntgarrett",
+  "description": "Let fate decide your skin for this game!",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -12,7 +15,6 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "electron": "^20.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",
@@ -27,7 +29,30 @@
     "eject": "react-scripts eject",
     "dev": "electron .",
     "format": "f -w",
-    "format:check": "f"
+    "format:check": "f",
+    "build-installer": "react-scripts build && electron-builder"
+  },
+  "build": {
+    "appId": "lolskinrandomizer",
+    "productName": "LoL Skin Randomizer",
+    "files": ["build/**/*", "node_modules/**/*"],
+    "directories": {
+      "buildResources": "public"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "installerIcon": "public/favicon.ico",
+      "uninstallerIcon": "public/favicon.ico",
+      "uninstallDisplayName": "LoL Skin Randomizer",
+      "deleteAppDataOnUninstall": true,
+      "license": "license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -37,9 +62,7 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 electron version"
     ],
     "development": [
       "last 1 chrome version",
@@ -49,8 +72,8 @@
   },
   "devDependencies": {
     "@magic/format": "^0.0.48",
-    "electron-is-dev": "^2.0.0",
-    "electron-reload": "^2.0.0-alpha.1",
+    "electron": "^20.1.4",
+    "electron-builder": "^23.3.3",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6"
   }
