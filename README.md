@@ -24,4 +24,8 @@ in one console window, and in another console window, run
 
 to launch the application as an Electron client.
 
+## Features
+
+Option to include default skins in random roll. Click the star button to favorite champions for easy access on the sidebar. Saved skins and favorited champions are persisted on exit.
+
 <img src="demo/demo.png">
